@@ -4,15 +4,17 @@
 }
 
 body {
-  background: url(/assets/background.jpg) no-repeat fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(/assets/background.jpg) no-repeat fixed;
   width: 100%;
   background-size: cover;
   font-family: "Maven Pro", sans-serif;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-.input-contacts {
+.input_contacts {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -47,4 +49,31 @@ button {
   margin: 10px;
   background: #fff;
   border: none;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.contact-info {
+  height: 100px;
+  width: 250px;
+  margin: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 20px;
+  position: relative;
+}
+
+#delete_btn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  border: 1px solid black;
+  left: 85%;
+  top: 70%;
 }
