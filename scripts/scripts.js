@@ -37,9 +37,4 @@ class Contacts {
 
 const myContacts = new AddressBook();
 
-myContacts.add("Karen", "karen@griffus.com", "810-730-6460", "Mother");
-myContacts.add("Dale", "dale@griffus.com", "810-730-6552", "Father");
-myContacts.add("Scott", "scott@griffus.com", "111-111-1111", "Brother");
-myContacts.print();
-myContacts.delete("Dale");
 myContacts.print();
