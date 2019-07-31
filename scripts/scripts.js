@@ -1,5 +1,4 @@
 const myContacts = [];
-const form = document.querySelector(".input_contacts");
 
 function handleAdd(event) {
   event.preventDefault();
@@ -14,7 +13,7 @@ function handleAdd(event) {
 
 function displayContacts() {
   document.querySelector(".contact-card").innerHTML = "";
-  form.reset();
+  // document.querySelector(".input_contacts").reset();
   myContacts.forEach((person, index) => {
     const div = document.createElement("div");
     div.classList.add("contact-info");
@@ -28,12 +27,13 @@ function displayContacts() {
   });
 }
 
+document.querySelector(".input_contacts").addEventListener("submit", handleAdd);
+
 function deleteContactHandler(event) {
-  myContacts.splice(Number(event.target.attributes[0].value), 1);
+  myContacts.splice(event.target.attributes[0].value, 1);
   displayContacts();
 }
 
-form.addEventListener("submit", handleAdd);
 document
   .querySelector(".contact-card")
   .addEventListener("click", deleteContactHandler);
