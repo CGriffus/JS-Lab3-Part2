@@ -13,7 +13,7 @@ function handleAdd(event) {
 
 function displayContacts() {
   document.querySelector(".contact-card").innerHTML = "";
-  // document.querySelector(".input_contacts").reset();
+  document.querySelector(".input_contacts").reset();
   myContacts.forEach((person, index) => {
     const div = document.createElement("div");
     div.classList.add("contact-info");
@@ -22,7 +22,7 @@ function displayContacts() {
     <p>Email: ${person.email}</p>
     <p>Phone: ${person.phone}</p>
     <p>Relation: ${person.relation}</p>
-    <button index = ${index} id = "delete_btn"><i class="fas fa-trash-alt"></i></button>`;
+    <button index=${index} class="delete_btn"><i class="fas fa-trash-alt"></i></button>`;
     document.querySelector(".contact-card").append(div);
   });
 }
@@ -30,7 +30,13 @@ function displayContacts() {
 document.querySelector(".input_contacts").addEventListener("submit", handleAdd);
 
 function deleteContactHandler(event) {
-  myContacts.splice(event.target.attributes[0].value, 1);
+  if (event.target.classList.contains("delete_btn")) {
+    console.log(event.target.attributes);
+    myContacts.splice(event.target.attributes[0].value, 1);
+  } else if (event.target.classList.contains("fas")) {
+    myContacts.splice(event.target.parentNode.attributes[0].value, 1);
+  }
+
   displayContacts();
 }
 
